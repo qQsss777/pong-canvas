@@ -1,0 +1,22 @@
+.game-root {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.game-score {
+  height: 20%;
+}
+
+.game-container {
+  height: 80%;
+}
+
+.game-container > canvas {
+  position: absolute;
+}
+
+.game-dynamic {
+  z-index: 9999;
+}
