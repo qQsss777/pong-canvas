@@ -9,7 +9,11 @@
     "preview": "vite preview",
     "prettier": "prettier . --write",
     "lint": "eslint",
-    "prepare": "husky"
+    "lint-staged": "lint-staged",
+    "prepare": "husky",
+    "preversion": "npm test",
+    "version": "npm run build && git add -A",
+    "postversion": "git push && git push --tags"
   },
   "devDependencies": {
     "@eslint/js": "^9.20.0",
