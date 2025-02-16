@@ -11,8 +11,9 @@
     "lint": "eslint",
     "lint-staged": "lint-staged",
     "prepare": "husky",
-    "preversion": "npm test",
-    "version": "npm run build && git add -A",
+    "version:patch": "npm run version patch",
+    "version:minor": "npm run version minor",
+    "version:major": "npm run version major",
     "postversion": "git push && git push --tags"
   },
   "devDependencies": {
