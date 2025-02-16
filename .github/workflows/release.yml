@@ -2,7 +2,7 @@ name: release
 
 on:
   workflow_run:
-      workflows: ["build"]
+      workflows: ["main"]
       types:
         - completed
   push:
@@ -10,23 +10,17 @@ on:
       - 'v*'
 
 jobs:
-  build:
-    name: Create Release
+  release:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
+
+      - name: Set up Git
+        run: git config --global user.name "qQsss777" && git config --global user.email "a@a.a"
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Provided by Actions
-        with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
-          body: |
-            Changes in this Release
-            - First Change
-            - Second Change
-          draft: false
-          prerelease: false
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
